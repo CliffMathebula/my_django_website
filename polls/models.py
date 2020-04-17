@@ -4,14 +4,16 @@ from django.db import models
 from django.utils import timezone
 
 
-class Question(models.Model):
-    # ...
-    def was_published_recently(self):
-        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+class Registration(models.Model):
+    name = models.TextField(max_length=255, null=False)
+    surname = models.TextField(max_length=255, null=False)
+    id_number = models.IntegerField(null=False)
+    cellnumber = models.CharField(max_length=255, null = False)
+    date_of_reg = models.DateTimeField(timezone.now)
+    
+    
+    
 
-class Choice(models.Model):
-    # ...
     def __str__(self):
-        return self.choice_text
-
-        
+        return self.name
+    
