@@ -1,17 +1,17 @@
 from django.db import models
 
-
 class Post(models.Model):
-    name = models.TextField()
-    surname = models.TextField()
-    id_number = models.IntegerField()
-    email_address = models.EmailField()
-    username = models.CharField(max_length=50)
-    password = models.CharField(max_length = 50)
-    user_id = models.ForeignKey(
-        'auth.User',
-        on_delete=models.CASCADE,
-    )
+    name = models.TextField(max_length=100)
+    surname = models.TextField(max_length=100,default=None)
+    UserName = models.CharField(max_length = 100, default=None)
+    id_number = models.IntegerField(default=None)
+    Email = models.EmailField(default=None, max_length = 100)
+    CellNumber = models.CharField(max_length=20, default=None)
+    Address = models.TextField(default=None, max_length= 250)
+    PostalCode = models.IntegerField(default=None)
+    PassWord = models.CharField(max_length=250, default=None)
+
 
     def __str__(self):
+    
         return self.name

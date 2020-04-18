@@ -1,6 +1,12 @@
+{% extends 'base.html' %}
 <h1>Message board homepage</h1>
 <ul>
-{% for post in all_posts_list %}
-<li>{{ post }}</li>
+{% block content %}
+
+    {% for post in all_posts_list %}
+<li>{{ post.name }}</li>
+<li>{{ post.surname }}</li>
+<li>{{ post.UserName }}</li>
 {% endfor %}
 </ul>
+{% endblock %}
