@@ -4,7 +4,10 @@
 {% block content %}
 
     {% for user in all_users_list %}
-<li>{{ user.name }}</li>
+    <li><a href="{% url 'delete_user' user.id %}">Delete user</a></li>
+    <li><a href="{% url 'edit_user' user.id %}">Edit Profile</a></li>
+
+    <li>{{ user.name }}</li>
 <li>{{ user.surname }}</li>
 <li>{{ user.UserName }}</li>
 {% endfor %}
