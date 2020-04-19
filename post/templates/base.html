@@ -2,9 +2,7 @@
 <html>
 <head>
 <title>Django blog</title>
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:
-"
-rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:"rel="stylesheet">
 <link href="{% static 'css/base.css' %}" rel="stylesheet">
 </head>
 <body>
@@ -14,7 +12,9 @@ rel="stylesheet">
 <h1><a href="{% url 'home' %}">Django blog</a></h1>
 </div>
 <div class="nav-right">
-<a href="{% url 'post_new' %}">+ New Blog Post</a>
+<a href="{% url 'register' %}">+ New Blog Post</a>
+<li><a href="{% url 'edit_user' request.user.pk %}">Edit Profile</a></li>
+<li><a href="{% url 'delete_user' user.pk %}">Delete user</a></li>
 </div>
 </header>
 {% block content %}
