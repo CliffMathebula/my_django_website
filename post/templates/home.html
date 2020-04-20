@@ -1,15 +1,36 @@
 {% extends 'base.html' %}
 <h1>Message board homepage</h1>
-<ul>
+
 {% block content %}
 
+
+{% if user.is_authenticated %}
+
+<div class="nav-left">
+    <h1><a href="{% url 'home' %}">Home</a></h1>
+</div>
+
+<div class="nav-right">
+    <a href="{% url 'register' %}">Signup</a>
+</div>
+</header>
+<p>Hi {{ user.username }}!</p>
+<p><a href="{% url 'logout' %}">Log out</a></p>
+<ul>
     {% for user in all_users_list %}
     <li><a href="{% url 'delete_user' user.id %}">Delete user</a></li>
     <li><a href="{% url 'edit_user' user.id %}">Edit Profile</a></li>
 
     <li>{{ user.name }}</li>
-<li>{{ user.surname }}</li>
-<li>{{ user.UserName }}</li>
-{% endfor %}
+    <li>{{ user.surname }}</li>
+    <li>{{ user.UserName }}</li>
+    {% endfor %}
+    {% else %}
+    <div class="nav-left">
+        <h1><a href="{% url 'login' %}">Login</a></h1>
+        <p>You are not logged in. <a href="{% url 'login' %}">Log In</a></p>
+    </div>
+    
+    {% endif %}
 </ul>
 {% endblock %}
